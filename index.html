@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Salutar - Porteirinha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'salutar-blue': '#1A7D9B',
+                        'salutar-gold': '#C6A278',
+                        'salutar-light': '#F5F7FA',
+                        'salutar-dark': '#333333'
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'Arial', 'sans-serif']
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark body {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        .dark .card {
+            background-color: #1e1e1e;
+        }
+        
+        .profile-header {
+            height: 120px;
+            background: #C6A278;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+        
+        .logo-container {
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 1;
+        }
+        
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 46px;
+        }
+        
+        .wave-divider .shape-fill {
+            fill: white;
+        }
+        
+        .dark .wave-divider .shape-fill {
+            fill: #1e1e1e;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col items-center pb-12">
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <div class="w-full max-w-md mx-auto bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden mt-6">
+        <div class="relative profile-header">
+        </div>
+        
+        <div class="flex justify-center -mt-16">
+            <div class="logo-container w-32 h-32 rounded-full bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://pfst.cf2.poecdn.net/base/image/5fbe8fdbae265854792d3d5932ba9105c25f58933af0dfd7cb14fe0c288e2e3d?w=703&h=703" 
+                     alt="Logo Clínica Salutar" 
+                     class="w-28 h-28 object-contain">
+            </div>
+        </div>
+        
+        <div class="px-6 py-4 text-center">
+            <h1 class="text-2xl font-bold text-salutar-blue dark:text-salutar-gold mb-1">Clínica Salutar - Porteirinha</h1>
+            <p class="text-gray-600 dark:text-gray-300 font-medium mb-2">• Clínica Médica e Odontológica</p>
+            <p class="text-gray-700 dark:text-gray-300 italic mb-8">Nossa missão é cuidar bem de você! 🩺</p>
+            
+            <div class="space-y-4">
+                <!-- Botão WhatsApp -->
+                <a href="https://wa.me/5538998438204" target="_blank" 
+                   class="btn flex items-center justify-center w-full py-3 px-4 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-md">
+                    <i class="fab fa-whatsapp text-xl mr-3"></i>
+                    <span class="font-semibold">Agendar Consulta via WhatsApp</span>
+                </a>
+                
+                <!-- Botão Instagram -->
+                <a href="https://www.instagram.com/clinsalutar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" 
+                   class="btn flex items-center justify-center w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg shadow-md">
+                    <i class="fab fa-instagram text-xl mr-3"></i>
+                    <span class="font-semibold">Nos Siga no Instagram</span>
+                </a>
+                
+                <!-- Botão Google Maps -->
+                <a href="https://www.google.com/maps/search/Rua+Professora+Zanote+Bezerra,+250,+Porteirinha,+Minas+Gerais,+Brazil+39.520-000" target="_blank" 
+                   class="btn flex items-center justify-center w-full py-3 px-4 bg-salutar-blue hover:bg-opacity-90 text-white rounded-lg shadow-md">
+                    <i class="fas fa-map-marker-alt text-xl mr-3"></i>
+                    <span class="font-semibold">Como Chegar</span>
+                </a>
+            </div>
+            
+            <div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-4">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <i class="fas fa-map-pin mr-1"></i> Rua Professora Zanote Bezerra, 250
+                </p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    Porteirinha, Minas Gerais - 39.520-000
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="mt-8 text-center text-xs text-gray-500 dark:text-gray-400">
+        <p>© 2024 Clínica Salutar. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
